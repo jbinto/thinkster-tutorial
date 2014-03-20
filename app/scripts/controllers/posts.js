@@ -1,6 +1,7 @@
 'use strict';
 
 app.controller('PostsCtrl', function($scope, Post) {
+  
   $scope.posts = Post.get();
 
   // "Empty" post. Will be used for in the <form> tag.
@@ -10,7 +11,7 @@ app.controller('PostsCtrl', function($scope, Post) {
     Post.save($scope.post, function(ref) {
       console.log(ref);
       console.log(ref.name);
-      $scope.posts[ref.name] = $scope.post
+      $scope.posts[ref.name] = $scope.post;
 
       // DRY!
       $scope.post = { url: 'http://', title: '' };
@@ -20,9 +21,15 @@ app.controller('PostsCtrl', function($scope, Post) {
     $scope.post = { url: 'http://', title: '' };
   };
 
-  $scope.deletePost = function(index) {
-    $scope.posts.splice(index, 1);
-  };
-});
+  $scope.deletePost = function(postId) {
+    Post.delete({id: postId}, function() {
+      // JavaScript `delete` keyword:
+      //  "The delete operator removes a property from an object."
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete
+      delete $scope.posts[postId];
+    });
+  }; /* function */
+
+}); /* app */
 
   
