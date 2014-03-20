@@ -15,13 +15,16 @@
 
     <div class="col-md-9 col-xs-11">
 
-      <div class="info">
-        <a ng-href="{{post.url}}">{{ post.title }}</a>
+      <div class="row">
+        <h2><a ng-href="{{post.url}}">{{ post.title }}</a></h2>
+        
+
         <a class="btn btn-primary btn-xs" ng-href="#/posts/{{postId}}">Comments</a>
         <a class="btn btn-danger btn-xs" ng-click="deletePost(postId)">Delete</a>
+
+        <span class="text-muted">(via {{ post.url | hostnameFromUrl }})</span>
       </div>
 
-    </div>
 
     <div class="col-md-2"></div>
 
