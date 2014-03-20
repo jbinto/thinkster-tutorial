@@ -17,7 +17,7 @@ describe('Controller: PostsCtrl', function () {
   }));
 
   it('should attach an empty post to the scope', function () {
-    expect(scope.post.url).toEqual("http://");
-    expect(scope.post.title).toEqual("");
+    expect(scope.post.url).toEqual('http://');
+    expect(scope.post.title).toEqual('');
   });
 });
