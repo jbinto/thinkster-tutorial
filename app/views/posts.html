@@ -1,17 +1,28 @@
 <div class="container posts-page">
+  <div class="post row" ng-repeat="(postId, post) in posts">
+    
+    <!-- 1994: Empty spacer GIF.
+         2014: Empty Bootstrap column. -->
 
-<div ng-repeat="(postId, post) in posts">
-  <h2><a ng-href="{{post.url}}">{{ post.title }}</a></h2>
-  <div class="btn btn-danger btn-xs" ng-click="deletePost(postId)">
-    Delete
-  </div>
-  <a class="btn btn-primary btn-xs" ng-href="#/posts/{{postId}}">
-    Comments
-  </a>
+    <!-- Recall:  xs=small screens, md=medium screens.
+                   Below:
 
-</div>
+                   xs: 1 + 11 = 12
+                   md: 9 + 2 = 11 ??
+    -->
 
-<strong>Posts:</strong> {{posts}}<br>
-<strong>Post:</strong> {{post}}
+    <div class="col-xs-1"></div>
+
+    <div class="col-md-9 col-xs-11">
+
+      <div class="info">
+        <a ng-href="{{post.url}}">{{ post.title }}</a>
+        <a class="btn btn-primary btn-xs" ng-href="#/posts/{{postId}}">Comments</a>
+        <a class="btn btn-danger btn-xs" ng-click="deletePost(postId)">Delete</a>
+      </div>
+
+    </div>
+
+    <div class="col-md-2"></div>
 
 </div>
