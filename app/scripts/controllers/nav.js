@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('NavCtrl', function($scope, $location, Post) {
+app.controller('NavCtrl', function($scope, $location, Post, Auth) {
 
   $scope.post = { url: 'http://', title: '' };
 
@@ -8,6 +8,10 @@ app.controller('NavCtrl', function($scope, $location, Post) {
     Post.create($scope.post).then(function(ref) {
       $location.path('/posts/' + ref.name());
     });
+  };
+
+  $scope.logout = function() {
+    Auth.logout();
   };
 
 }); /* app */
