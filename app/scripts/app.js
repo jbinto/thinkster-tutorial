@@ -12,7 +12,7 @@ var app = angular.module('angNewsApp', [
 
 app.config(function($routeProvider) {
   $routeProvider
-    .when('/', {
+    .when('/posts/', {
       templateUrl: 'views/posts.html',
       controller: 'PostsCtrl'
     })
@@ -20,8 +20,9 @@ app.config(function($routeProvider) {
       templateUrl: 'views/showpost.html',
       controller: 'PostViewCtrl'
     })
-
-    ;
+    .otherwise({
+      redirectTo: '/posts'
+    });
 });
 
 app.constant('FIREBASE_URL',
