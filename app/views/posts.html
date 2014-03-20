@@ -1,3 +1,5 @@
+<div class="container posts-page">
+
 <div ng-repeat="(postId, post) in posts">
   <h2><a ng-href="{{post.url}}">{{ post.title }}</a></h2>
   <div class="btn btn-danger btn-xs" ng-click="deletePost(postId)">
@@ -9,15 +11,7 @@
 
 </div>
 
-<form ng-submit="submitPost()" class="form-horizontal">
-  <label class="control-label" for="title">Title</label>
-  <input class="form-control" ng-model="post.title" name="title">
-
-  <label class="control-label" for="url">URL</label>
-  <input class="form-control" ng-model="post.url" name="url">
-
-  <input type="submit" value="Post" class="form-control btn btn-primary">
-</form>
-
 <strong>Posts:</strong> {{posts}}<br>
 <strong>Post:</strong> {{post}}
+
+</div>
