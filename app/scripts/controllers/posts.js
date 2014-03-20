@@ -16,9 +16,6 @@ app.controller('PostsCtrl', function($scope, Post) {
       // DRY!
       $scope.post = { url: 'http://', title: '' };
     });
-
-    // DRY? Where would we keep this "blank" template?
-    $scope.post = { url: 'http://', title: '' };
   };
 
   $scope.deletePost = function(postId) {
