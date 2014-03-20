@@ -1,5 +1,9 @@
 <div ng-repeat="post in posts">
- <a ng-href="post.url">{{ post.title }}</a>
+  <a ng-href="post.url">{{ post.title }}</a> 
+  <div class="btn btn-danger btn-sm" ng-click="deletePost()">
+    Delete
+  </div>
+
 </div>
 
 <form ng-submit="submitPost()" class="form">
