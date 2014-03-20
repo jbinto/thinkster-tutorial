@@ -20,8 +20,11 @@ app.config(function($routeProvider) {
       templateUrl: 'views/showpost.html',
       controller: 'PostViewCtrl'
     })
-    .otherwise({
+    .when('/', {
       redirectTo: '/posts'
+    })
+    .otherwise({
+      template: '<h1>404</h1>'
     });
 });
 
