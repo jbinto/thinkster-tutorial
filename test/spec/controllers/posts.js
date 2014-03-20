@@ -12,7 +12,8 @@ describe('Controller: PostsCtrl', function () {
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
     PostsCtrl = $controller('PostsCtrl', {
-      $scope: scope
+      $scope: scope,
+      Post: postStub
     });
   }));
 
@@ -20,4 +21,11 @@ describe('Controller: PostsCtrl', function () {
     expect(scope.post.url).toEqual('http://');
     expect(scope.post.title).toEqual('');
   });
+
+  function postStub() {
+    var stub = {
+      all: {}
+    };
+    return stub;
+  }
 });
