@@ -3,7 +3,7 @@
 describe('Controller: AuthCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('thinksterTutorialApp'));
+  beforeEach(module('angNewsApp'));
 
   var AuthCtrl,
     scope;
