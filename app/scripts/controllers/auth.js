@@ -22,6 +22,7 @@ app.controller('AuthCtrl',
       Auth.register($scope.user).then(
         function(authUser) {
           console.log(authUser);
+          $scope.login();
           $location.path('/');
         },
         function(error) {
