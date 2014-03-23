@@ -39,26 +39,33 @@ app.service('User', function($firebase, FIREBASE_URL, $rootScope) {
   function setCurrentUser(username) {
     // Get the User object corresponding to 'username',
     // and assign it globally to the root scope
-    $rootScope.currentUser = User.findByUsername(username);
+    console.log('looking for user ' + username);
+    var user = User.findByUsername(username);
+    console.log(user);
+    $rootScope.currentUser = user;
   }
 
   // Handle login events from Firebase
   $rootScope.$on('$firebaseSimpleLogin:login', function(e, user) {
-    debugger;
+    console.log('welcome! you gave me:');
+    console.log(user);
 
     // Grab the user by uid (awkward)
     var query = $firebase(ref.startAt(user.uid).endAt(user.uid));
+    console.log('executed query!');
 
     // When query returns a result, set the current user
     query.$on('loaded', function() {
       var username = query.$getIndex()[0];
+      console.log('query returned: ' + username);
       setCurrentUser(username);
     });
   });
 
   // Remove user from scope when Firebase logs us out
-  $rootScope.$on('$firebaseSimpleLogin:logout', function() {
+  $rootScope.$on('$firebaseSimpleLogin:logout', function(e, user) {
     console.log('bye!');
+    console.log(user);
     delete $rootScope.currentUser;
   });
 

@@ -10,7 +10,9 @@ app.factory('Auth',
         return auth.$createUser(user.email, user.password);
       },
       signedIn: function() {
-        return auth.user !== null;
+        var rv = auth.user !== null;
+        console.log('signed in? ' + rv);
+        return rv;
       },
       login: function (user) {
         return auth.$login('password', user);
