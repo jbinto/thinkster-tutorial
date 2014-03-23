@@ -4,4 +4,4 @@
 
                    xs: 1 + 11 = 12
                    md: 9 + 2 = 11 ??
-    --><div class="col-xs-1"></div><div class="col-md-9 col-xs-11"><div class="row"><h2><a ng-href="{{post.url}}">{{ post.title }}</a></h2><a class="btn btn-primary btn-xs" ng-href="#/posts/{{postId}}">Comments</a> <a class="btn btn-danger btn-xs" ng-click="deletePost(postId)">Delete</a> <span class="text-muted">(via {{ post.url | hostnameFromUrl }})</span></div><div class="col-md-2"></div></div></div></div>
+    --><div class="col-xs-1"></div><div class="col-md-9 col-xs-11"><div class="row"><h2><a ng-href="{{post.url}}">{{ post.title }}</a></h2><a class="btn btn-primary btn-xs" ng-href="#/posts/{{postId}}">Comments</a> <a class="btn btn-danger btn-xs" ng-click="deletePost(postId)" ng-show="signedIn() && post.owner === currentUser.username">Delete</a> <span class="text-muted">({{ post.url | hostnameFromUrl }} via {{ post.owner ? post.owner : "[deleted]" }})</span></div><div class="col-md-2"></div></div></div></div>
